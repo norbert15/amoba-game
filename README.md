@@ -1,0 +1,2 @@
+# amoba-game
+Amőba játék
