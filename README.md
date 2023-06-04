@@ -37,4 +37,5 @@ Győződjön meg róla, hogy a megfelelő verziók telepítve vannak a gépedre.
 2. Navigálj a projekt gyökérkönyvtárába a parancssorban.
 3. Futtasd az alábbi parancsot a függőségek telepítéséhez: npm install
 4. A program indításához a következő kódot kell beírni: ng serve
+5. Ez után a böngészőbe a következő url-en érhető el: http://localhost:4200
 
