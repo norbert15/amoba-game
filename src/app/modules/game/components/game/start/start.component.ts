@@ -166,24 +166,20 @@ export class StartComponent implements OnInit {
 
     let count: number = prevCount;
 
-    if (count === this.gameSettingsService.counter) {
-      return true;
-    }
-
     if (this.table[row][col].playerId === player.id) {
       count++;
 
       if (this.winnerPositions.length < this.gameSettingsService.counter) {
-        this.winnerPositions.push(`${row}-${col}`)
+        this.winnerPositions.push(`${row}-${col}`);
       }
-      
+
     } else {
       return false;
     }
 
-    /* if (count === this.gameSettingsService.counter) {
+    if (count === this.gameSettingsService.counter) {
       return true;
-    } */
+    }
 
     const [rowD, colD] = direction;
 
