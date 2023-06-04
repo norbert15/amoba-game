@@ -1,0 +1,65 @@
+.btn-table {
+    width: 50px;
+    height: 50px;
+    border-radius: 0%;
+    background-color: rgba($color: #fba634, $alpha: 0.02);
+
+    &:active, &:hover {
+        border-color: #fba634;
+        background-color: rgba($color: #fba634, $alpha: 0.02)
+    }
+}
+
+.no-cursor {
+    pointer-events: none;
+}
+
+.line {
+    background-color: black;
+    position: absolute;
+    height: 3px;
+}
+
+.vertical-line {
+    top: 50%;
+    left: 0;
+    width: 100%;
+    transform: rotate(90deg);
+}
+
+.horizontal-line {
+    top: 50%;
+    left: 0;
+    width: 100%;
+}
+
+.diagonal-left-line {
+    width: 70px;
+    top: 97%;
+    right: 1%;
+    transform-origin: right bottom;
+    transform: rotate(45deg);
+}
+
+.diagonal-right-line {
+    width: 70px;
+    top: 97%;
+    left: 1%;
+    transform-origin: left bottom;
+    transform: rotate(-45deg);
+}
+
+.player-names {
+    font-size: 20px;
+}
+
+.amoba-table {
+    overflow: auto;
+    white-space: nowrap;
+    user-select: none;
+}
+
+i {
+    font-size: 25px;
+    font-weight: bold;
+}

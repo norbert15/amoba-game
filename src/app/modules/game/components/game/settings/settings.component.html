@@ -1,0 +1,73 @@
+<div class="d-flex justify-content-center mt-5">
+    <div class="card bg-transparent text-orange border-orange mb-5">
+        <div class="card-header border-0 text-center">
+            <span class="fs-1">
+                <i class="bi bi-gear me-2"></i>
+                Játék beállítások
+            </span>
+        </div>
+        <div class="card-body my-3">
+            <!-- Játékosok számának megadása -->
+            <div>
+                <div class="input-setting">
+                    <label for="player-count" class="form-label pt-1">Játékosok száma:</label>
+                    <input 
+                        type="number" 
+                        min="2" 
+                        max="12" 
+                        id="player-count" 
+                        class="form-control wpx-80"
+                        (input)="onChangeSetPlayers($event)"
+                        [(ngModel)]="playerCount"
+                        >
+                </div>
+            </div>
+            <!-- /Játékosok számának megadása -->
+    
+            <!-- Pálya méretének megadása -->
+            <div class="input-setting mt-3">
+                <label for="map-size" class="form-label pt-1">Pálya mérete:</label>
+    
+                <div class="d-flex">
+                    <span [ngStyle]="{'padding-top': '7px'}" class="me-2" *ngIf="gameSettingsService.mapSize">{{ gameSettingsService.mapSize }} x</span>
+                    <input 
+                        type="number" 
+                        [min]="gameSettingsService.players.length + 1"
+                        max="50"
+                        id="map-size" 
+                        class="form-control wpx-80" 
+                        (input)="onChangeCheckSize($event)"
+                        [(ngModel)]="gameSettingsService.mapSize">
+                </div>
+            </div>
+            <!-- /Pálya méretének megadása -->
+
+            <!-- Számláló megadása -->
+            <div class="input-setting mt-3">
+                <label for="counter" class="form-label pt-1">Számláló</label>
+                <input 
+                    type="number"
+                    min="3"
+                    max="50"
+                    id="counter"
+                    class="form-control wpx-80"
+                    (input)="onChangeSetCounter($event)"
+                    [(ngModel)]="gameSettingsService.counter">
+            </div>
+            <!-- /Számláló megadása -->
+    
+            <!-- Játékosok beállítása -->
+            <amoba-player-settings></amoba-player-settings>
+            <!-- /Játékosok beállítása -->
+
+            <div class="d-none text-red mt-4" id="invalid">Hiányzó játékos név! Kérem minden játékosnak adjon meg egy rövid nevet!</div>
+    
+            <div class="text-center mt-5">
+                <button class="btn border-secondary text-white me-2" (click)="logout()">Kilépés</button>
+                <button class="btn btn-orange" (click)="checkBeforeStart()">Játék indtása</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<amoba-sidebar></amoba-sidebar>
