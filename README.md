@@ -12,12 +12,12 @@ Ez a webalkalmazás egy Amőba játékot valósít meg Angular keretrendszer seg
 - Számláló: ami esetén a játék véget ér, ha egy játékos megfelelő számú jelölést ér el függőlegesen, vízszintesen vagy átlósan. A minimum érték függ a pálya méretétől, vagyis a számláló nem lehet nagyobb mint a pálya mérete. A legkisebb számláló ami megadható az 3, a legnagyobb pedig 50.
 - Játékosok adatai: add meg a játékosok nevét, színét és jelölőjét. A szín és a jelölő opciókat a megfelelő értékekkel módosíthatod. Amíg a játékos neve üresen van addig a játékot nem lehet elindítani amiről a rendszer egy hibaüzenetet is megjelenít.
 
-4. Az összes beállítás után a játékot a "Játék indítása" gombra kattintva elindul, és a pályán játszhatod az Amőba játékot a többi játékossal/.
-5. Amikor a játék elindult a jobb sarkoban további 3 funkció használatára van lehetőség
+4. A beállítások után a játék a "Játék indítása" gombra kattintva elindul, és a pályán játszhatod az Amőba játékot a többi játékossal.
+5. Amikor a játék elindult a jobb felső sarkoban további 3 funkció használatára van lehetőség:
 - Új játék kezdése
 - Újra kezdés
 - Kilépés
-6. Ha egy játéko jelölője elérte a számláló értékét akkor a játék végért és nyer a játékos, ebben az esetben egy ablak úgrik fel ami kiírja a nyertes játékost valamint 3 gomb is megjelenik:
+6. Ha egy játékos jelölője elérte a számláló értékét akkor a játék véget ér és nyer a játékos, ebben az esetben egy ablak ugrik fel, ami kiírja a nyertes játékos nevét, valamint 3 gomb is megjelenik:
 - Kilépés
 - Visszavágó
 - Új játék
