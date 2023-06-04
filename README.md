@@ -26,20 +26,15 @@ Ez a webalkalmazás egy Amőba játékot valósít meg Angular keretrendszer seg
 
 A következő technológiákra van szükség a projekt futtatásához:
 
-- Node.js
-- Angular CLI
+- Node.js 18.16.0
+- Angular CLI 15.2.6
 
-Győződj meg róla, hogy a megfelelő verziók telepítve vannak a gépedre.
-
-## Továbbfejlesztési lehetőségek
-
-A jelenlegi verzió csak az alapvető játékfunkcionalitást tartalmazza. Az alábbiakban felsorolt funkciók továbbfejlesztése lehet érdekes:
-
-- Chat rendszer a játékosok
-
+Győződjön meg róla, hogy a megfelelő verziók telepítve vannak a gépedre.
 
 ## Telepítés
 
 1. Klónozd le a projektet a gépedre.
 2. Navigálj a projekt gyökérkönyvtárába a parancssorban.
-3. Futtasd az alábbi parancsot a függőségek telepítéséhez:
+3. Futtasd az alábbi parancsot a függőségek telepítéséhez: npm install
+4. A program indításához a következő kódot kell beírni: ng serve
+
