@@ -9,7 +9,7 @@ Ez a webalkalmazás egy Amőba játékot valósít meg Angular keretrendszer seg
 3. A beállítások oldalon konfigurálhatod a játékot az alábbi paraméterek szerint:
 - Játékosok száma: állítsd be, hány játékos vesz részt a játékban. Minimum 2 játékos és maximum 12 játékos vehet részt a játékban.
 - Pálya mérete: válaszd ki a pálya méretét, például 10 (10x10). A pálya minimum mérete függ a játékosok számától: játékosok száma + 1. Maximum 50x50-es pálya méret lehetséges.
-- Számláló: ami esetén a játék véget ér, ha egy játékos megfelelő számú jelölést ér el függőlegesen, vízszintesen vagy átlósan.
+- Számláló: ami esetén a játék véget ér, ha egy játékos megfelelő számú jelölést ér el függőlegesen, vízszintesen vagy átlósan. A minimum érték függ a pálya értékétől, vagyis a számláló nem lehet nagyobb mint a pálya mérete. A legkisebb számláló ami megadható az 3, a legnagyobb pedig 50.
 - Játékosok adatai: add meg a játékosok nevét, színét és jelölőjét. A szín és a jelölő opciókat a megfelelő értékekkel módosíthatod. Ha a játékos neve üresen marad akkor a játékot addig nem lehet elindítani amiről a rendszer egy hiba üzenetet is megjelenít.
 
 4. Az összes beállítás után a játékot a "Játék indítása" gombra kattintva elindul, és a pályán játszhatod az Amőba játékot a többi játékossal/.
