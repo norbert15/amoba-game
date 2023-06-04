@@ -1,0 +1,45 @@
+#sidebar {
+    width: 250px;
+    height: 100%;
+    background-color: #fa9428;
+}
+
+.bi {
+    position: absolute;
+    font-size: 80px;
+    color: black;
+    mix-blend-mode: soft-light;
+    opacity: 0.3;
+    -webkit-text-stroke-width: 9px;
+}
+
+.bi:nth-child(2) {
+    top: 80vh;
+    right: -5%;
+}
+
+.bi:nth-child(3) {
+    top: 20vh;
+    right: -5%;
+}
+
+.bi:nth-child(4) {
+    top: 65vh;
+    left: 0%;
+}
+
+.bi:nth-child(5) {
+    top: -8vh;
+    right: 0%;
+}
+
+.bi:nth-child(6) {
+    top: 45vh;
+    left: 70px;
+}
+
+@media(max-width: 1000px) {
+    #sidebar {
+        display: none;
+    }
+}

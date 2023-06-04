@@ -1,0 +1,6 @@
+<div>
+    <ng-container [ngSwitch]="isGameStarted">
+        <amoba-settings *ngSwitchCase="false" (start)="isGameStarted = true"></amoba-settings>
+        <amoba-start *ngSwitchDefault (newGame)="isGameStarted = false"></amoba-start>
+    </ng-container>
+</div>

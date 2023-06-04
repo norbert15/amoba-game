@@ -1,0 +1,75 @@
+<div class="mt-4 pt-2">
+    <p class="text-center fs-2">Játékosok beállítása</p>
+
+    <!-- Játékosok listája -->
+    <div class="text-center mt-3">
+        <ng-container *ngFor="let player of gameSettingsService.players">
+            <button 
+                (click)="gameSettingsService.selectedPlayerId = player.id"
+                class="btn me-2" 
+                [ngClass]="{'btn-player': player.id == gameSettingsService.selectedPlayerId}" 
+                [ngStyle]="{'color': player.color, 'border-color': player.id == gameSettingsService.selectedPlayerId ? player.color : ''}">
+                {{ player.name }}
+            </button>
+        </ng-container>
+    </div>
+    <!-- /Játékosok listája -->
+
+    <!-- Kiválasztott játékos beállítása -->
+    <ng-container *ngIf="gameSettingsService.selectedPlayerId != -1">
+
+        <!-- Játékos nevének megadása -->
+        <div class="mt-3">
+            <label for="player-name" class="form-label">Játékos neve:</label>
+            <input 
+                type="text" 
+                minlength="3"
+                maxlength="30"
+                id="player-name" 
+                class="form-control custom-input" 
+                [(ngModel)]="gameSettingsService.players[gameSettingsService.selectedPlayerId - 1].name">
+        </div>
+        <!-- Játékos nevének megadása -->
+        
+        <!-- Ikon választás -->
+        <div class="input-setting mt-3">
+            <label for="player-icon" class="form-label pt-1 me-2">Jelölő:</label>
+
+            <div class="position-relative">
+                <div>
+                    <button 
+                        class="btn btn-orange p-0 px-2 py-1 wpx-60" 
+                        data-bs-toggle="collapse" 
+                        data-bs-target="#icon-items">
+                        <i 
+                            role="button" 
+                            class="text-center p-2" 
+                            [ngStyle]="{'color': gameSettingsService.players[gameSettingsService.selectedPlayerId - 1].color}"
+                            [ngClass]="gameSettingsService.players[gameSettingsService.selectedPlayerId - 1].icon"></i>
+                    </button>
+                </div>
+            
+                <!-- Ikonok listája -->
+                <div class="collapse position-absolute end-0 bg-secondary icon-items row g-0 mx-3" id="icon-items">
+                    <ng-container *ngFor="let icon of icons; let i = index">
+                        <p class="mx-1 mb-2 col" role="button">
+                            <i 
+                                class="text-center text-white" 
+                                (click)="gameSettingsService.players[gameSettingsService.selectedPlayerId - 1].icon = icon" 
+                                [ngClass]="icon">
+                            </i>
+                        </p>
+                    </ng-container>
+                </div>
+            </div>
+        </div>
+        <!-- Ikon választás -->
+
+        <div class="input-setting mt-3">
+            <label for="player-color" class="form-label me-2">Színe:</label>
+            <input type="color"  class="form-control wpx-60" [(ngModel)]="gameSettingsService.players[gameSettingsService.selectedPlayerId - 1].color">
+        </div>
+
+    </ng-container>
+    <!-- /Kiválasztott játékos beállítása -->
+</div>

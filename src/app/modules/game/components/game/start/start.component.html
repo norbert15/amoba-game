@@ -1,0 +1,65 @@
+<amoba-navbar (gameReload)="start()" (newGame)="newGame.emit(true)"></amoba-navbar>
+
+<div class="container text-center pb-5 mt-5 pt-4">
+
+    <!-- Játék információk -->
+    <div class="mb-3">
+        <p class="fw-bold fs-4 mb-0 text-orange">Kör: {{ round }}</p>
+
+        <!-- Következő játékos -->
+        <p class="text-orange fs-5 mb-0">
+            Következik: 
+            <span class="fw-bold" [ngStyle]="{'color': gameSettingsService.players[currentPlayerIndex].color}">
+                {{ gameSettingsService.players[currentPlayerIndex].name }}
+            </span>
+        </p>
+        <!-- /Következő játékos -->
+
+        <!-- Jelölő -->
+        <p class="text-orange fs-5">
+            Jelölő:
+            <i 
+                class="fw-bold" 
+                [class]="gameSettingsService.players[currentPlayerIndex].icon" 
+                [ngStyle]="{'color': gameSettingsService.players[currentPlayerIndex].color}">
+            </i>
+        </p>
+        <!-- /Jelölő -->
+
+    </div>
+    <!-- /Játék információk -->
+
+    <!-- Pálya -->
+    <div class="amoba-table mt-4">
+        <div *ngFor="let row of table; let i = index">
+            <button 
+                *ngFor="let col of row; let j = index"
+                type="button"
+                [disabled]="isGameEnd"
+                [showIcon]="col.isOccupied ? '' : gameSettingsService.players[currentPlayerIndex].icon"
+                class="btn btn-table border-orange position-relative"
+                (click)="playerMove(i, j)"
+                [ngClass]="{'no-cursor': col.isOccupied, 'text-white-50': !col.isOccupied}">
+                <i 
+                    [class]="col.icon"
+                    [ngStyle]="{'color': col.color}">
+                </i>
+
+                <span 
+                    *ngIf="winnerPositions.includes(col.id)"
+                    class="line {{ winnerDirectionClass }}">
+                </span>
+            </button>
+        </div>
+    </div>
+    <!-- /Pálya -->
+</div>
+
+<button class="d-none" id="open-modal" data-bs-target="#game-end-modal" data-bs-toggle="modal"></button>
+
+<amoba-game-end 
+    [winner]="winner"
+    [isDraw]="isTableFull()"
+    (gameReload)="start()"
+    (newGame)="newGame.emit(true)">
+</amoba-game-end>

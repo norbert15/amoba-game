@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+$orange: #fba634;
+$grey-linear: linear-gradient(90deg, rgba(42,43,43,1) 0%, rgba(63,64,64,1) 100%);
+
+html {
+    height: 100%;
+}
+
+body {
+    background: $grey-linear;
+    background-size: 100%;
+    scrollbar-color: $orange;
+}
+
+.text-red {
+    color: rgb(255, 70, 70);
+}
+
+.text-orange {
+    color: $orange;
+}
+
+.border-orange {
+    border-color: $orange;
+}
+
+.bg-orange {
+    background-color: $orange;
+}
+
+.btn-orange {
+    border-color: $orange;
+    color: $orange;
+
+    &:hover {
+        border-color: $orange;
+        color: $orange;
+    }
+}
+
+.input-setting {
+    display: flex;
+    justify-content: space-between;
+}
+
+input,
+input:focus,
+input:active {
+    background: none !important;
+    border-color: $orange !important;
+    color: $orange !important;
+    box-shadow: none !important;
+}
+
+input::placeholder {
+    color: $orange !important;
+}
+
+input:-webkit-autofill{
+    -webkit-text-fill-color: $orange;
+    transition: background-color 5000s ease-in-out 0s;
+}
+
+::-webkit-scrollbar {
+    background-color: gray;
+    width: 10px;
+    height: 5px;
+}
+  
+::-webkit-scrollbar-thumb {
+    background-color: $orange;
+}

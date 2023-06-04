@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand">
+    <div class="container-fluid">
+        <a class="fs-5 text-decoration-none text-orange">
+            <i class="bi bi-person-circle me-2"></i>
+            Amoba mester
+        </a>
+
+        <div class="text-end text-orange">
+
+            <button (click)="newGame.emit(true)" class="btn text-orange" title="Új játék">
+                <i class="bi bi-gear"></i>
+            </button>
+
+            <button (click)="gameReload.emit(true)" class="btn text-orange" title="Újra kezdése">
+                <i class="bi bi-arrow-clockwise"></i>
+            </button>
+
+            <button (click)="logout()" class="btn text-orange" title="Kilépés">
+                <i class="bi bi-box-arrow-right"></i>
+            </button>
+        </div>
+    </div>
+  </nav>

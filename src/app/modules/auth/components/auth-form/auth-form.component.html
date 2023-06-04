@@ -1,0 +1,23 @@
+<div class="container">
+
+    <div class="d-flex justify-content-center vh-100">
+        <div class="card bg-transparent align-self-center">
+            <div class="card-header border-0">
+                <img width="50" height="50" src="./assets/images/amoba_table2.jpg" alt="aboma_tábla">
+                <span class="ms-3 fw-bold fs-5 text-orange">Lépj be és játssz egy jót!</span>
+            </div>
+            <div class="card-body mt-3">
+                <input type="text" [(ngModel)]="username" class="form-control" placeholder="Felhasználónév">
+                <input type="password" [(ngModel)]="password" class="form-control mt-3" placeholder="**********">
+
+                <div *ngIf="isFailed" class="text-red mt-3 fw-bold">A megadott felhasználónév vagy jelszó helytelen!</div>
+            </div>
+
+            <div class="card-footer mt-3 text-center">
+                <button (click)="login()" class="btn btn-orange">Bejelentkezés</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<amoba-sidebar></amoba-sidebar>
