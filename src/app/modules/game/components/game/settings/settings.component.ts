@@ -27,7 +27,28 @@ export class SettingsComponent {
     private elementRef: ElementRef,
     private router: Router) {
       this.playerCount = gameSettingsService.players.length
+  }
+
+  /**
+   * Játék beállítások dinamikus módosítása minimum és maximum érékek túllépése esetén
+   * 
+   * @param {any} min - minimális érték, melynél kisebb nem lehet
+   * @param {any} max - maximális érték, melyet nem léphet túl
+   * @param {keyof GameSettingsService} property - GameSettingsService egyik tulajdonsága
+   * @param {string} elementId - HTML elem azonosítója
+   */
+  setSettingsValue(min: any, max: any, property: keyof GameSettingsService, elementId: string): void {
+    const element: HTMLInputElement = this.elementRef.nativeElement.querySelector(elementId);
+
+    if (!this.gameSettingsService[property] || this.gameSettingsService[property] < min) {
+      this.gameSettingsService[property] = min;
+      element.value = min.toString();
+
+    } else if (this.gameSettingsService[property] > max) {
+      this.gameSettingsService[property] = max;
+      element.value = max.toString();
     }
+  }
 
   /**
    * A játékosok számának minden módosításakor ellenőrzi hogy a bevit
@@ -95,17 +116,9 @@ export class SettingsComponent {
    * - ha kisebb mint a minimum (játékosok száma + 1) vagy null akkor 
    * megadható méret a minimum lesz  
    * 
-   * @param {any} event - kiváltó esemény (input)
    */
-  onChangeCheckSize(event: any): void {
-    if (!this.gameSettingsService.mapSize || this.gameSettingsService.mapSize < (this.gameSettingsService.players.length + 1)) {
-      this.gameSettingsService.mapSize = this.gameSettingsService.players.length + 1;
-      event.target.value = this.gameSettingsService.players.length + 1;
-
-    } else if (this.gameSettingsService.mapSize > 50) {
-      this.gameSettingsService.mapSize = 50;
-      event.target.value = 50;
-    }
+  onChangeCheckSize(): void {
+    this.setSettingsValue(this.gameSettingsService.players.length + 1, 50, 'mapSize', '#map-size');
 
     // Számláló módosítása
     if (this.gameSettingsService.counter > this.gameSettingsService.mapSize) {
@@ -149,17 +162,12 @@ export class SettingsComponent {
    * @param {any} event - kiváltó esemény (input)
    */
   onChangeSetCounter(event: any): void {
-    if (!this.gameSettingsService.counter || this.gameSettingsService.counter < 3) {
-      this.gameSettingsService.counter = 3;
-      event.target.value = 3;
-    } else if (this.gameSettingsService.counter > this.gameSettingsService.mapSize) {
+    this.setSettingsValue(3, 50, "counter", "#counter");
+
+    if (this.gameSettingsService.counter > this.gameSettingsService.mapSize) {
       this.gameSettingsService.counter = this.gameSettingsService.mapSize;
       event.target.value = this.gameSettingsService.mapSize;
     }
-    else if (this.gameSettingsService.counter > 50) {
-      this.gameSettingsService.counter = 50;
-      event.target.value = 50;
-    } 
   }
 
   /**
