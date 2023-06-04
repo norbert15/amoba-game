@@ -26,7 +26,7 @@ Ez a webalkalmazás egy Amőba játékot valósít meg Angular keretrendszer seg
 
 ## Továbbfejleszési lehetőség
 
-1. Időtúllépés: egy bizony időn belül, ha egy játéko nem helyez el jelölőt akkor a játék automatikusan elhelyez egyet random.
+1. Időtúllépés: egy bizony időn belül, ha egy játékos nem helyez el jelölőt akkor a játék automatikusan elhelyez egyet random.
 2. AI játékos beállítása: ha nem lenne partner kivel játszani akkor a gép csatlakozhat.
 3. Játékos  beállítások validálása: egyedi név, szín vagy jelölő.
 
